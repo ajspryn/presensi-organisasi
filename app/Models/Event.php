@@ -17,4 +17,8 @@ class Event extends Model
     {
         return $this->hasMany(AgendaEvent::class);
     }
+    public function organisasi()
+    {
+        return $this->belongsTo(Organisasi::class);
+    }
 }

@@ -41,7 +41,7 @@
                                                 @if ($kelompok->logo)
                                                     <a href="default-hotel-details.html" class="position-relative d-block"><img src="{{ asset('storage/' . $kelompok->logo) }}" alt="image" class="w-100"></a>
                                                 @else
-                                                    <a href="default-hotel-details.html" class="position-relative d-block"><img src="https://source.unsplash.com/1024x576/?islamic,mosque{{ $loop->iteration }}" alt="image" class="w-100"></a>
+                                                    <a href="default-hotel-details.html" class="position-relative d-block"><img src="https://source.unsplash.com/1024x576/?mosque,islam{{ $loop->iteration }}" alt="image" class="w-100"></a>
                                                 @endif
                                             </div>
                                             <div class="card-body pt-0">

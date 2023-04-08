@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
@@ -38,7 +39,16 @@ class AnggotaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $id = decrypt($id);
+        // $users = User::with(['anggota' => function ($query) use ($id) {
+        //     $query->where('organisasi_id', '=', $id);
+        // }])->get();
+        $users = User::whereHas('anggota', function ($query) use ($id) {
+            $query->where('organisasi_id', $id);
+        })->get();
+        return view('anggota.index', [
+            'users' => $users,
+        ]);
     }
 
     /**

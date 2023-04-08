@@ -81,12 +81,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/feather.css">
+    <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/feather.css') }}">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
 
@@ -101,7 +101,7 @@
         <div class="nav-header bg-transparent shadow-none border-0">
             <div class="nav-top w-100">
                 <a href="/"><img src="{{ asset('images/favicon.png') }}" width="90" alt=""></i><span class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0"></span> </a>
-                @if (request('kode') && request('id'))
+                @if (request('kode'))
                     <a href="/register" class="mob-menu ms-auto me-2" data-bs-toggle="modal" data-bs-target="#Modalregister"><i class="feather-user-plus text-grey-900 font-sm btn-round-md bg-greylight"></i></a>
 
                     <a href="/register" class="header-btn d-none d-lg-block bg-dark fw-500 text-white font-xsss p-3 ms-auto w100 text-center lh-20 rounded-xl" data-bs-toggle="modal" data-bs-target="#Modalregister">Register</a>
@@ -145,7 +145,7 @@
 
                             <div class="col-sm-12 p-0 text-left">
                                 <div class="form-group mb-1"><button type="submit" class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Login</button></div>
-                                @if (request('kode') && request('id'))
+                                @if (request('kode'))
                                     <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Dont have account <a href="register.html" class="fw-700 ms-1" data-bs-toggle="modal" data-bs-target="#Modalregister">Register</a></h6>
                                 @endif
                             </div>
@@ -213,7 +213,7 @@
                                     <!-- <a href="#" class="fw-600 font-xsss text-grey-700 mt-1 float-right">Forgot your Password?</a> -->
                                 </div>
                                 <input type="hidden" name="organisasi_uuid" value="{{ request('kode') }}">
-                                <input type="hidden" name="kelompok_uuid" value="{{ request('id') }}">
+                                {{-- <input type="hidden" name="kelompok_uuid" value="{{ request('id') }}"> --}}
                                 <div class="col-sm-12 p-0 text-left">
                                     <div class="form-group mb-1"><button type="submit" class="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">Register</button></div>
                                     <h6 class="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">Already have account <a href="/" class="fw-700 ms-1">Login</a></h6>
@@ -227,8 +227,8 @@
         </div>
     </div>
 
-    <script src="js/plugin.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="{{ asset('js/plugin.js') }}"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
 
 </body>
 

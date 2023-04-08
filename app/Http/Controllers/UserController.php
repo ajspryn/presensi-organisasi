@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Anggota;
 use App\Models\Organisasi;
+use App\Models\Presensi;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Storage;
@@ -90,6 +91,10 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::where('id', $id)->get()->first();
+        Storage::delete($user->avatar);
+        Presensi::deleted('id', $id);
+        User::destroy('id', $id);
+        return redirect('/user')->with('success', 'User Telah Di Hapus');
     }
 }

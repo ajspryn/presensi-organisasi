@@ -9,7 +9,7 @@
                     <li><a href="/" class="nav-content-bttn open-font"><i class="feather-home btn-round-md bg-blue-gradiant me-3"></i><span>Home</span></a></li>
                     <li><a href="/presensi" class="nav-content-bttn open-font"><i class="feather-user-check btn-round-md bg-red-gradiant me-3"></i><span>Presensi</span></a></li>
                     @if (Auth::user()->anggota)
-                        @can('event read')
+                        @can('organisasi read')
                             <li>
                                 <a href="/organisasi/{{ Auth::user()->anggota->organisasi->uuid }}" class="nav-content-bttn open-font"><i class="feather-globe btn-round-md bg-mini-gradiant me-3"></i><span>Organisasi</span></a>
                             </li>
@@ -29,13 +29,13 @@
                 <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2">
                     <div class="nav-caption fw-600 font-xssss text-grey-500">Administration</div>
                     <ul class="mb-3">
-                        @can('user read')
+                        @can('user create')
                             <li><a href="/user" class="nav-content-bttn open-font"><i class="font-xl text-current feather-user me-3"></i><span>User</span></a></li>
                         @endcan
-                        @can('role read')
+                        @can('role create')
                             <li><a href="/role" class="nav-content-bttn open-font"><i class="font-xl text-current feather-award me-3"></i><span>Role</span></a></li>
                         @endcan
-                        @can('organisasi read')
+                        @can('organisasi create')
                             <li><a href="/organisasi" class="nav-content-bttn open-font"><i class="font-xl text-current feather-globe me-3"></i><span>Semua Organisasi</span></a></li>
                         @endcan
                     </ul>

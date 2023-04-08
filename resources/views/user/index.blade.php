@@ -75,7 +75,12 @@
                                                             <a href="/user/{{ encrypt($user->id) }}"><i class="feather-eye font-xs text-primary"></i></a>
                                                         @endcan
                                                         @can('user delete')
-                                                            <a href="#"><i class="feather-trash-2 font-xs text-danger"></i></a>
+                                                            <form action="/user/{{ $user->id }}" method="post" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                {{-- <a href="#" class="bg-danger theme-white-bg btn-round-lg ms-2 rounded-3 text-grey-700" onclick="return Swal.fire({title:'Apakah Anda yakin ingin menghapus data ini?',icon:'warning',showCancelButton:true,confirmButtonText:'Ya',cancelButtonText:'Tidak',reverseButtons:true}).then((result) => {if (result.isConfirmed) {this.closest('form').submit();} else {return false;}});"><i class="feather-trash-2 font-md text-white"></i></a> --}}
+                                                                <a href="#" onclick="return Swal.fire({title:'Apakah Anda yakin ingin menghapus data ini?',icon:'warning',showCancelButton:true,confirmButtonText:'Ya',cancelButtonText:'Tidak',reverseButtons:true}).then((result) => {if (result.isConfirmed) {this.closest('form').submit();} else {return false;}});"><i class="feather-trash-2 font-xs text-danger"></i></a>
+                                                            </form>
                                                         @endcan
                                                     </td>
                                                 </tr>

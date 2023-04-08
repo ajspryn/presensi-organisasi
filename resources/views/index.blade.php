@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card w-100 border-0 p-0 bg-white shadow-xss rounded-xxl mb-3">
-                            <div class="card-body h250 p-0 rounded-xxl overflow-hidden m-3"><img src="https://source.unsplash.com/1024x250/?islamic,mosque" alt="image"></div>
+                            <div class="card-body h250 p-0 rounded-xxl overflow-hidden m-3"><img src="https://source.unsplash.com/1024x250/?mosque,islam" alt="image"></div>
                             <div class="card-body p-0 position-relative">
                                 <figure class="avatar position-absolute w100 z-index-1" style="top:-40px; left: 30px;"><img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="image" class="float-right p-1 bg-white rounded-circle w-100"></figure>
                                 <h4 class="fw-700 font-sm mt-2 mb-lg-5 mb-1 pl-15">{{ Auth::user()->name }}

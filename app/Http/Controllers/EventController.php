@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AgendaEvent;
 use App\Models\Event;
-use App\Models\Organisasi;
-use Illuminate\Http\Request;
 use Ramsey\Uuid\Uuid;
+use App\Models\Organisasi;
+use App\Models\AgendaEvent;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -66,7 +67,9 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('event.edit', [
+            'event' => Event::with('organisasi')->where('uuid', $id)->get()->first(),
+        ]);
     }
 
     /**
@@ -74,7 +77,23 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // return $request;
+        $data = [
+            "nama" => "required",
+            "tgl_event" => "required",
+            "alamat" => "required",
+            "organisasi_id" => "required",
+        ];
+        $input = $request->validate($data);
+        if ($request->file('flayer')) {
+            if ($request->flayer_lama) {
+                Storage::delete($request->flayer_lama);
+            }
+            $input['flayer'] = $request->file('flayer')->store('flayer');
+        }
+        Event::where('id', $id)->update($input);
+        $organisasi = Organisasi::where('id', $input['organisasi_id'])->get()->first();
+        return redirect('/organisasi' . '/' . $organisasi->uuid)->with('success', 'Event Berhasil Diubah');
     }
 
     /**
@@ -82,6 +101,9 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::where('id', $id)->get()->first();
+        Storage::delete($event->flayer);
+        Event::destroy('id', $id);
+        return redirect()->back()->with('success', 'Event Telah Di Hapus');
     }
 }

@@ -80,6 +80,7 @@ class AgendaEventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        AgendaEvent::destroy('id', $id);
+        return redirect()->back()->with('success', 'Agenda Telah Di Hapus');
     }
 }

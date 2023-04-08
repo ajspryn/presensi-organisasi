@@ -69,7 +69,9 @@ class OrganisasiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('organisasi.edit', [
+            'organisasi' => Organisasi::where('uuid', $id)->get()->first(),
+        ]);
     }
 
     /**
@@ -77,7 +79,21 @@ class OrganisasiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // return $request;
+        $data = [
+            "nama" => 'required',
+            "alamat" => 'required',
+            "deskripsi" => 'nullable',
+            "logo" => 'nullable',
+        ];
+        $input = $request->validate($data);
+        if ($request->file('logo')) {
+            Storage::delete($request->logo_lama);
+            $input['logo'] = $request->file('logo')->store('logo-organisasi');
+        }
+        Organisasi::where('id', $id)->update($input);
+        $organisasi = Organisasi::where('id', $id)->get()->first();
+        return redirect('/organisasi' . '/' . $organisasi->uuid)->with('success', 'Organisasi Berhasil Dedit');
     }
 
     /**
@@ -87,6 +103,7 @@ class OrganisasiController extends Controller
     {
         $organisasi = Organisasi::where('id', $id)->get()->first();
         Storage::delete($organisasi->logo);
+        Event::deleted('organisasi_id', $id);
         Organisasi::destroy('id', $id);
         return redirect('/organisasi')->with('success', 'Organisasi Telah Di Hapus');
     }

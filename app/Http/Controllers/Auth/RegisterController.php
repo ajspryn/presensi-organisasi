@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'organisasi_uuid' => ['required', 'exists:organisasis,uuid'],
-            'kelompok_uuid' => ['required', 'exists:kelompoks,uuid'],
+            // 'kelompok_uuid' => ['required', 'exists:kelompoks,uuid'],
         ]);
     }
 
@@ -78,7 +78,7 @@ class RegisterController extends Controller
             Avatar::create($data['name'])->save(storage_path('app/public/avatar/avatar-' . $data['username'] . '.png'));
         }
         $organisasi_id = Organisasi::where('uuid', $data['organisasi_uuid'])->get()->first();
-        $kelompok_id = Kelompok::where('uuid', $data['kelompok_uuid'])->get()->first();
+        // $kelompok_id = Kelompok::where('uuid', $data['kelompok_uuid'])->get()->first();
 
         $user = User::create([
             'name' => $data['name'],
@@ -90,7 +90,7 @@ class RegisterController extends Controller
 
         $anggota = Anggota::create([
             'user_id' => $user->id,
-            'kelompok_id' => $kelompok_id->id,
+            // 'kelompok_id' => $kelompok_id->id,
             'organisasi_id' => $organisasi_id->id,
         ]);
 

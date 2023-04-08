@@ -1,170 +1,92 @@
 @extends('layouts.main')
 
-@section('title', 'Anggota')
+@section('title', 'Anggota Organisasi')
 
 @section('content')
     <!-- main content -->
-    <div class="main-content right-chat-active">
+    <div class="main-content bg-white right-chat-active">
 
         <div class="middle-sidebar-bottom">
-            <div class="middle-sidebar-left pe-0">
+            <div class="middle-sidebar-left">
                 <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card shadow-xss w-100 d-block d-flex border-0 p-4 mb-3">
-                            <div class="card-body d-flex align-items-center p-0">
-                                <h2 class="fw-700 mb-0 mt-0 font-md text-grey-900">Anggota</h2>
-                                <div class="search-form-2 ms-auto">
-                                    <i class="ti-search font-xss"></i>
-                                    <input type="text" class="form-control text-grey-500 mb-0 bg-greylight theme-dark-bg border-0" placeholder="Search here.">
+                    <div class="col-xl-12 cart-wrapper mb-4">
+                        <div class="row">
+                            <div class="col-lg-12 mb-3">
+                                <div class="card p-md-5 p-4 bg-primary-gradiant rounded-3 shadow-xss bg-pattern border-0 overflow-hidden">
+                                    <div class="bg-pattern-div"></div>
+                                    <h2 class="display2-size display2-md-size fw-700 text-white mb-0 mt-0">Anggota <span class="fw-700 ls-3 text-grey-200 font-xsssss mt-2 d-block">List Daftar Anggota</span></h2>
                                 </div>
-                                <a href="#" class="btn-round-md ms-2 bg-greylight theme-dark-bg rounded-3"><i class="feather-filter font-xss text-grey-500"></i></a>
                             </div>
                         </div>
-
-                        <div class="row ps-2 pe-2">
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-7.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Victor Exrixon </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-12.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Surfiya Zakir </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-4.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Goria Coast </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-danger font-xsssss fw-700 ls-lg text-white">FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-3.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Hurin Seary </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-2.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Victor Exrixon </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-danger font-xsssss fw-700 ls-lg text-white">FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-8.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Surfiya Zakir </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-4.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Goria Coast </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-3.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Hurin Seary </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-8.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Surfiya Zakir </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-4.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Goria Coast </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-3.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Hurin Seary </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-sm-4 pe-2 ps-2">
-                                <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 mt-0">
-                                    <div class="card-body d-block w-100 ps-3 pe-3 pb-4 text-center">
-                                        <figure class="avatar ms-auto me-auto mb-0 position-relative w65 z-index-1"><img src="images/user-11.png" alt="image" class="float-right p-0 bg-white rounded-circle w-100 shadow-xss" style="opacity: 1;"></figure>
-                                        <div class="clearfix"></div>
-                                        <h4 class="fw-700 font-xsss mt-3 mb-1">Aliqa Macale </h4>
-                                        <p class="fw-500 font-xsssss text-grey-500 mt-0 mb-3">@macale343</p>
-                                        <a href="#" class="mt-0 btn pt-2 pb-2 ps-3 pe-3 lh-24 ms-1 ls-3 d-inline-block rounded-xl bg-success font-xsssss fw-700 ls-lg text-white">ADD FRIEND</a>
-                                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 mb-3">
+                                <div class="table-content table-responsive">
+                                    <table class="table text-center">
+                                        <thead class="bg-greyblue rounded-3">
+                                            <tr>
+                                                <th class="border-0 p-4">&nbsp;</th>
+                                                <th class="border-0 p-4">Nama</th>
+                                                <th class="border-0 p-4">Username</th>
+                                                <th class="border-0 p-4">Email</th>
+                                                <th class="border-0 p-4">Organisasi</th>
+                                                <th class="border-0 p-4">Role</th>
+                                                <th class="border-0 p-4">&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($users as $user)
+                                                <tr>
+                                                    <td style="text-align: center">
+                                                        <a href="#">
+                                                            <img src="{{ asset('storage/' . $user->avatar) }}" alt="image" width="50" class="rounded-circle">
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <h3>
+                                                            <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $user->name }}</a>
+                                                        </h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3>
+                                                            <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $user->username }}</a>
+                                                        </h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3>
+                                                            <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $user->email }}</a>
+                                                        </h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3>
+                                                            @if ($user->anggota)
+                                                                <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $user->anggota->organisasi->nama }}</a>
+                                                            @endif
+                                                        </h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3>
+                                                            @if ($user->getRoleNames()->count() > 0)
+                                                                <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $user->getRoleNames()[0] }}</a>
+                                                            @endif
+                                                        </h3>
+                                                    </td>
+                                                    <td>
+                                                        @can('anggota update')
+                                                            <a href="/user/{{ encrypt($user->id) }}"><i class="feather-eye font-xs text-primary"></i></a>
+                                                        @endcan
+                                                        @can('anggota delete')
+                                                            <form action="/user/{{ $user->id }}" method="post" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                {{-- <a href="#" class="bg-danger theme-white-bg btn-round-lg ms-2 rounded-3 text-grey-700" onclick="return Swal.fire({title:'Apakah Anda yakin ingin menghapus data ini?',icon:'warning',showCancelButton:true,confirmButtonText:'Ya',cancelButtonText:'Tidak',reverseButtons:true}).then((result) => {if (result.isConfirmed) {this.closest('form').submit();} else {return false;}});"><i class="feather-trash-2 font-md text-white"></i></a> --}}
+                                                                <a href="#" onclick="return Swal.fire({title:'Apakah Anda yakin ingin menghapus data ini?',icon:'warning',showCancelButton:true,confirmButtonText:'Ya',cancelButtonText:'Tidak',reverseButtons:true}).then((result) => {if (result.isConfirmed) {this.closest('form').submit();} else {return false;}});"><i class="feather-trash-2 font-xs text-danger"></i></a>
+                                                            </form>
+                                                        @endcan
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

@@ -56,21 +56,21 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 mb-3">
-                                        <div class="form-group">
-                                            <label class="mont-font fw-600 font-xsss">Phone</label>
-                                            <input type="text" class="form-control" name="no_telp" value="{{ $user->anggota->no_telp }}">
+                                    @if ($user->anggota)
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="form-group">
+                                                <label class="mont-font fw-600 font-xsss">Phone</label>
+                                                <input type="text" class="form-control" name="no_telp" value="{{ $user->anggota->no_telp }}">
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-lg-12 mb-3">
-                                        <div class="form-group">
-                                            <label class="mont-font fw-600 font-xsss">Address</label>
-                                            <textarea class="form-control mb-0 p-3 h100 lh-16" rows="5" spellcheck="true" name="alamat">{{ $user->anggota->alamat }}</textarea>
+                                        <div class="col-lg-12 mb-3">
+                                            <div class="form-group">
+                                                <label class="mont-font fw-600 font-xsss">Address</label>
+                                                <textarea class="form-control mb-0 p-3 h100 lh-16" rows="5" spellcheck="true" name="alamat">{{ $user->anggota->alamat }}</textarea>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
 
                                 <div class="row">
