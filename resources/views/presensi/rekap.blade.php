@@ -34,43 +34,45 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($agenda->presensi as $presensi)
-                                                <tr>
-                                                    <td style="text-align: center">
-                                                        <a href="#">
-                                                            <img src="{{ asset('storage/' . $presensi->user->avatar) }}" alt="image" width="50">
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <h3>
-                                                            <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->user->name }}</a>
-                                                        </h3>
-                                                    </td>
-                                                    <td>
-                                                        <h3>
-                                                            <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->user->email }}</a>
-                                                        </h3>
-                                                    </td>
-                                                    <td>
-                                                        <h3>
-                                                            @if ($presensi->user->anggota)
-                                                                <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->user->anggota->organisasi->nama }}</a>
-                                                            @endif
-                                                        </h3>
-                                                    </td>
-                                                    <td>
-                                                        <h3>
-                                                            <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->created_at->format('h:i') }}</a>
-                                                        </h3>
-                                                    </td>
-                                                    {{-- <td>
-                                                        @can('user update')
-                                                            <a href="/user/{{ encrypt($presensi->user->id) }}"><i class="feather-eye font-xs text-primary"></i></a>
-                                                        @endcan
-                                                        @can('user delete')
-                                                            <a href="#"><i class="feather-trash-2 font-xs text-danger"></i></a>
-                                                        @endcan
-                                                    </td> --}}
-                                                </tr>
+                                                @if ($presensi->user)
+                                                    <tr>
+                                                        <td style="text-align: center">
+                                                            <a href="#">
+                                                                <img src="{{ asset('storage/' . $presensi->user->avatar) }}" alt="image" width="50">
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <h3>
+                                                                <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->user->name }}</a>
+                                                            </h3>
+                                                        </td>
+                                                        <td>
+                                                            <h3>
+                                                                <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->user->email }}</a>
+                                                            </h3>
+                                                        </td>
+                                                        <td>
+                                                            <h3>
+                                                                @if ($presensi->user->anggota)
+                                                                    <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->user->anggota->organisasi->nama }}</a>
+                                                                @endif
+                                                            </h3>
+                                                        </td>
+                                                        <td>
+                                                            <h3>
+                                                                <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $presensi->created_at->format('h:i') }}</a>
+                                                            </h3>
+                                                        </td>
+                                                        {{-- <td>
+                                                    @can('user update')
+                                                        <a href="/user/{{ encrypt($presensi->user->id) }}"><i class="feather-eye font-xs text-primary"></i></a>
+                                                    @endcan
+                                                    @can('user delete')
+                                                        <a href="#"><i class="feather-trash-2 font-xs text-danger"></i></a>
+                                                    @endcan
+                                                </td> --}}
+                                                    </tr>
+                                                @endif
                                             @endforeach
                                         </tbody>
                                     </table>

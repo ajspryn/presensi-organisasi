@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AgendaEvent;
+use App\Models\DokumentasiEvent;
 use Illuminate\Http\Request;
 
-class DokumetasiController extends Controller
+class DokumentasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +21,11 @@ class DokumetasiController extends Controller
      */
     public function create()
     {
-        //
+        $agenda = AgendaEvent::where('uuid', request('agenda'))->get()->first();
+        return view('dokumentasi.create', [
+            'event_id' => $agenda->event_id,
+            'agenda_event_id' => $agenda->id,
+        ]);
     }
 
     /**
@@ -27,7 +33,13 @@ class DokumetasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $agenda = AgendaEvent::where('id', $request->agenda_event_id)->get()->first();
+        $input = $request->all();
+        if ($request->file('foto')) {
+            $input['foto'] = $request->file('foto')->store('foto-dokumentasi');
+        }
+        DokumentasiEvent::create($input);
+        return redirect('/agenda?agenda=' . $agenda->uuid)->with('success', 'Dokumentasi Brhasil Di upload');
     }
 
     /**

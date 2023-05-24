@@ -36,14 +36,11 @@
                                             @can('event create')
                                                 <a href="/event/{{ $organisasi->uuid }}" class="btn w200 border-0 bg-primary-gradiant p-3 text-white fw-600 rounded-3 d-inline-block font-xssss mt-2">Tambah Event</a>
                                             @endcan
+                                            {{-- @can('keuangan create')
+                                                <a href="/keuangan?id={{ encrypt($organisasi->id) }}" class="btn w200 border-0 bg-primary-gradiant p-3 text-white fw-600 rounded-3 d-inline-block font-xssss mt-2">Tambah Event</a>
+                                            @endcan --}}
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-body d-block w-100 shadow-none mb-0 p-0 border-top-xs mb-3">
-                                    <ul class="nav nav-tabs h55 d-flex product-info-tab border-bottom-0 ps-4" id="pills-tab" role="tablist">
-                                        <li class="active list-inline-item me-5"><a class="fw-700 font-xssss text-grey-500 pt-3 pb-3 ls-1 d-inline-block active" href="#navtabs1" data-toggle="tab">About</a></li>
-                                        <li class="list-inline-item me-5"><a class="fw-700 font-xssss text-grey-500 pt-3 pb-3 ls-1 d-inline-block" href="#navtabs2" data-toggle="tab">Membership</a></li>
-                                    </ul>
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -66,7 +63,7 @@
                                 <div class="card w-100 border-0 shadow-none p-4 rounded-xxl mb-3" style="background-color: #e2f6e9;">
                                     <div class="card-body d-flex p-0">
                                         <i class="btn-round-lg d-inline-block me-3 bg-success feather-clipboard font-md text-white"></i>
-                                        <h4 class="text-success font-xl fw-700">0 <span class="fw-500 mt-0 d-block text-grey-500 font-xssss">Agenda</span></h4>
+                                        <h4 class="text-success font-xl fw-700">{{ $jumlah_agenda }} <span class="fw-500 mt-0 d-block text-grey-500 font-xssss">Agenda</span></h4>
                                     </div>
                                 </div>
                             </div>

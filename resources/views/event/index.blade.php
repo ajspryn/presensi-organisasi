@@ -17,6 +17,9 @@
                                 <a href="/agenda/create?event={{ $event->uuid }}" class="position-absolute bottom-15 mb-3 right-15"><i class="btn-round-sm bg-mini-gradiant text-white font-sm feather-plus"></i></a>
                             @endcan
                         </div>
+                        @can('keuangan read')
+                            <a href="/keuangan?id={{ encrypt($event->id) }}" class="font-xsssss fw-700 ps-3 pe-3 lh-32 float-right mt-4 text-uppercase rounded-3 ls-2 bg-success d-inline-block text-white me-1">Keuangan</a>
+                        @endcan
                     </div>
                     <div class="col-xl-12">
                         <div class="row ps-2 pe-2">
@@ -35,9 +38,9 @@
                                         <h5 class="font-xssss mb-2 text-grey-500 fw-600"><span class="text-grey-900 font-xssss">Keterangan : </span> {{ $agenda->keterangan }}</h5>
                                         <h5 class="font-xssss mb-2 text-grey-500 fw-600"><span class="text-grey-900 font-xssss">Jam Mulai : </span> {{ $agenda->jam_mulai }}</h5>
                                         <h5 class="font-xssss text-grey-500 fw-600 mb-3"><span class="text-grey-900 font-xssss">Jam Berakhir : </span> {{ $agenda->jam_berakhir }}</h5>
-                                        <h6 class="d-inline-block p-2 text-success alert-success fw-600 font-xssss rounded-3 me-2">0 Materi</h6>
-                                        <h6 class="d-inline-block p-2 text-warning alert-warning fw-600 font-xssss rounded-3 me-2">0 Dokumentasi</h6>
-                                        <h6 class="d-inline-block p-2 text-secondary alert-secondary fw-600 font-xssss rounded-3 me-2">0 Peserta Hadir</h6>
+                                        <h6 class="d-inline-block p-2 text-success alert-success fw-600 font-xssss rounded-3 me-2">{{ $agenda->materi->count() }} Materi</h6>
+                                        <h6 class="d-inline-block p-2 text-warning alert-warning fw-600 font-xssss rounded-3 me-2">{{ $agenda->dokumentasi->count() }} Dokumentasi</h6>
+                                        <h6 class="d-inline-block p-2 text-secondary alert-secondary fw-600 font-xssss rounded-3 me-2">{{ $agenda->presensi->count() }} Peserta Hadir</h6>
                                         <a href="/agenda?agenda={{ $agenda->uuid }}" class="position-absolute bottom-15 mb-3 right-15"><i class="btn-round-sm bg-primary-gradiant text-white font-sm feather-chevron-right"></i></a>
                                     </div>
                                 </div>

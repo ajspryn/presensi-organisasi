@@ -7,6 +7,7 @@ use Ramsey\Uuid\Uuid;
 use App\Models\Organisasi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Laravolt\Avatar\Facade as Avatar;
 use Illuminate\Support\Facades\Storage;
 
@@ -59,8 +60,15 @@ class OrganisasiController extends Controller
     public function show(string $id)
     {
         $organisasi = Organisasi::with('anggota', 'event')->where('uuid', $id)->get()->first();
+        $agenda = DB::table('organisasis')
+            ->join('events', 'organisasis.id', '=', 'events.organisasi_id')
+            ->join('agenda_events', 'events.id', '=', 'agenda_events.event_id')
+            ->select('organisasis.id as organisasi_id', DB::raw('count(agenda_events.id) as jumlah_agenda'))
+            ->groupBy('organisasis.id')
+            ->get();
         return view('organisasi.detail', [
             'organisasi' => $organisasi,
+            'jumlah_agenda' => $agenda[0]->jumlah_agenda
         ]);
     }
 

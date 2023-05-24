@@ -25,4 +25,8 @@ class AgendaEvent extends Model
     {
         return $this->hasMany(Materi::class);
     }
+    public function dokumentasi()
+    {
+        return $this->hasMany(DokumentasiEvent::class);
+    }
 }

@@ -18,19 +18,20 @@
                             <div class="clearfix"></div>
                             <h5 class="mt-4 mb-4 d-inline-block font-xssss fw-600 text-grey-500 me-2"><i class="btn-round-sm bg-greylight ti-user text-grey-500 me-1"></i> {{ $agenda->presensi->count() }}</h5>
                             <h5 class="mt-4 mb-4 d-inline-block font-xssss fw-600 text-grey-500 me-2"><i class="btn-round-sm bg-greylight ti-book text-grey-500 me-1"></i> {{ $agenda->materi->count() }}</h5>
-                            <div class="clearfix"></div>
                             @can('dokumentasi create')
-                                <a href="#" class="btn-round-lg ms-2 d-inline-block rounded-3 bg-danger"><i class="feather-camera font-sm text-white"></i> </a>
+                                <a href="/dokumentasi/create?agenda={{ $agenda->uuid }}" class="btn-round-lg ms-2 d-inline-block rounded-3 bg-danger mb-2"><i class="feather-camera font-sm text-white "></i> </a>
                             @endcan
                             @can('agenda create')
-                                <a href="/printqr?agenda={{ $agenda->uuid }}" class="btn-round-lg ms-2 d-inline-block rounded-3 bg-greylight"><i class="feather-printer font-sm text-grey-700"></i></a>
+                                <a href="/printqr?agenda={{ $agenda->uuid }}" class="btn-round-lg ms-2 d-inline-block rounded-3 bg-greylight mb-2"><i class="feather-printer font-sm text-grey-700"></i></a>
                             @endcan
-                            @can('rekap presensi read')
-                                <a href="/materi/create?agenda={{ $agenda->uuid }}" class="bg-primary-gradiant border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-3 d-inline-block mt-0 p-2 lh-34 text-center ls-3 w200 ms-2">Tambah Materi</a>
-                            @endcan
-                            @can('materi create')
-                                <a href="/rekap/{{ $agenda->uuid }}" class="bg-warning border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-3 d-inline-block mt-0 p-2 lh-34 text-center ls-3 w200 ms-2">Rekap Presensi</a>
-                            @endcan
+                            <div class="clearfix">
+                                @can('materi create')
+                                    <a href="/materi/create?agenda={{ $agenda->uuid }}" class="bg-primary-gradiant border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-3 d-inline-block mt-0 p-2 lh-34 text-center ls-3 w200 ms-2 d-inline">Tambah Materi</a>
+                                @endcan
+                                @can('rekap presensi read')
+                                    <a href="/rekap/{{ $agenda->uuid }}" class="bg-warning border-0 text-white fw-600 text-uppercase font-xssss float-left rounded-3 d-inline-block mt-0 p-2 lh-34 text-center ls-3 w200 ms-2">Rekap Presensi</a>
+                                @endcan
+                            </div>
                         </div>
                         @can('materi read')
                             <div class="card d-block border-0 rounded-3 overflow-hidden p-4 shadow-xss mt-4">
@@ -48,12 +49,9 @@
                             <div class="card d-block border-0 rounded-3 overflow-hidden p-4 shadow-xss mt-4">
                                 <h2 class="fw-700 font-sm mb-3 mt-1 ps-1 mb-3">Dokumentasi</h2>
                                 <div class="row ps-3 pe-3">
-                                    <div class="col-sm-4 col-xss-4 pe-1 ps-1 mb-2"><a href="images/p-1.jpg" data-lightbox="roadtrip"><img src="images/p-1.jpg" alt="image" class="img-fluid w-100 rounded-3"></a></div>
-                                    <div class="col-sm-4 col-xss-4 pe-1 ps-1 mb-2"><a href="images/p-2.jpg" data-lightbox="roadtrip"><img src="images/p-2.jpg" alt="image" class="img-fluid w-100 rounded-3"></a></div>
-                                    <div class="col-sm-4 col-xss-4 pe-1 ps-1 mb-2"><a href="images/p-3.jpg" data-lightbox="roadtrip"><img src="images/p-3.jpg" alt="image" class="img-fluid w-100 rounded-3"></a></div>
-                                    <div class="col-sm-4 col-xss-4 pe-1 ps-1 mb-2"><a href="images/p-4.jpg" data-lightbox="roadtrip"><img src="images/p-4.jpg" alt="image" class="img-fluid w-100 rounded-3"></a></div>
-                                    <div class="col-sm-4 col-xss-4 pe-1 ps-1 mb-2"><a href="images/p-5.jpg" data-lightbox="roadtrip"><img src="images/p-5.jpg" alt="image" class="img-fluid w-100 rounded-3"></a></div>
-                                    <div class="col-sm-4 col-xss-4 pe-1 ps-1 mb-2"><a href="images/p-6.jpg" data-lightbox="roadtrip"><img src="images/p-6.jpg" alt="image" class="img-fluid w-100 rounded-3"></a></div>
+                                    @foreach ($agenda->dokumentasi as $dokumentasi)
+                                        <div class="col-sm-4 col-xss-4 pe-1 ps-1 mb-2"><a href="{{ asset('storage/' . $dokumentasi->foto) }}" data-lightbox="roadtrip"><img src="{{ asset('storage/' . $dokumentasi->foto) }}" alt="image" class="img-fluid w-100 rounded-3"></a></div>
+                                    @endforeach
                                 </div>
                             </div>
                         @endcan

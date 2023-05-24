@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Keuangan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KeuanganController extends Controller
 {
@@ -11,7 +14,15 @@ class KeuanganController extends Controller
      */
     public function index()
     {
-        //
+        if (request('id')) {
+            $id = decrypt(request('id'));
+            $keuangans = Keuangan::where('event_id', $id)->get();
+        } else {
+            $keuangans = Keuangan::where('organisasi_id', Auth::user()->anggota->organisasi_id)->get();
+        }
+        return view('keuangan.index', [
+            'keuangans' => $keuangans,
+        ]);
     }
 
     /**
@@ -27,7 +38,17 @@ class KeuanganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        $request->validate([
+            "jenis_transaksi" => 'required',
+            "keterangan" => 'required',
+            "jumlah" => 'required',
+        ]);
+        $input = $request->all();
+        $event = Event::where('id', $request->event_id)->get()->first();
+        $input['organisasi_id'] = $event->organisasi_id;
+        Keuangan::create($input);
+        return redirect()->back()->with('success', 'Keuangan Berhasil Ditambahkan');
     }
 
     /**
@@ -59,6 +80,8 @@ class KeuanganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $id = decrypt($id);
+        Keuangan::destroy('id', $id);
+        return redirect()->back()->with('success', 'Keuangan Berhasil Dihapus');
     }
 }

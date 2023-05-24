@@ -11,6 +11,7 @@ use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\AgendaEventController;
+use App\Http\Controllers\DokumentasiController;
 use App\Http\Controllers\RekapPresensiController;
 use App\Http\Controllers\PrintQrPresensiController;
 
@@ -47,4 +48,5 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('materi', MateriController::class);
     Route::resource('keuangan', KeuanganController::class);
     Route::resource('kelompok', KelompokController::class);
+    Route::resource('dokumentasi', DokumentasiController::class);
 });
