@@ -63,12 +63,14 @@ class OrganisasiController extends Controller
         $agenda = DB::table('organisasis')
             ->join('events', 'organisasis.id', '=', 'events.organisasi_id')
             ->join('agenda_events', 'events.id', '=', 'agenda_events.event_id')
-            ->select('organisasis.id as organisasi_id', DB::raw('count(agenda_events.id) as jumlah_agenda'))
+            ->where('organisasis.id', $organisasi->id)
+            ->select('organisasis.id as organisasi_id', DB::raw('coalesce(count(agenda_events.id), 0) as jumlah_agenda'))
             ->groupBy('organisasis.id')
-            ->get();
+            ->get('jumlah_agenda')->first();
+        // return $agenda;
         return view('organisasi.detail', [
             'organisasi' => $organisasi,
-            'jumlah_agenda' => $agenda[0]->jumlah_agenda
+            'jumlah_agenda' => $agenda
         ]);
     }
 

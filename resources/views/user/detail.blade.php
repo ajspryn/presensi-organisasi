@@ -80,7 +80,7 @@
                                             <div class="col-lg-3 mb-2">
                                                 <div class="form-check text-left mb-2">
                                                     <label class="pt--1 form-check-label fw-600 font-xsss text-grey-700" for="Check{{ $loop->iteration }}">{{ $role->name }}</label>
-                                                    <input type="radio" class="form-check-input mt-2" id="Check{{ $loop->iteration }}" name="roles[]" value="{{ $role->name }}">
+                                                    <input type="radio" class="form-check-input mt-2" id="Check{{ $loop->iteration }}" name="roles[]" value="{{ $role->name }}" @if ($role->name == $user->roles->first()->name) checked @endif>
                                                 </div>
                                             </div>
                                         @endforeach

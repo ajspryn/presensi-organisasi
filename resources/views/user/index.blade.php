@@ -58,7 +58,7 @@
                                                     </td>
                                                     <td>
                                                         <h3>
-                                                            @if ($user->anggota)
+                                                            @if ($user->anggota && $user->anggota->organisasi)
                                                                 <a href="#" class="text-grey-900 fw-600 font-xsss">{{ $user->anggota->organisasi->nama }}</a>
                                                             @endif
                                                         </h3>

@@ -63,7 +63,7 @@
                                 <div class="card w-100 border-0 shadow-none p-4 rounded-xxl mb-3" style="background-color: #e2f6e9;">
                                     <div class="card-body d-flex p-0">
                                         <i class="btn-round-lg d-inline-block me-3 bg-success feather-clipboard font-md text-white"></i>
-                                        <h4 class="text-success font-xl fw-700">{{ $jumlah_agenda }} <span class="fw-500 mt-0 d-block text-grey-500 font-xssss">Agenda</span></h4>
+                                        <h4 class="text-success font-xl fw-700">{{ $jumlah_agenda->jumlah_agenda ?? 0 }} <span class="fw-500 mt-0 d-block text-grey-500 font-xssss">Agenda</span></h4>
                                     </div>
                                 </div>
                             </div>

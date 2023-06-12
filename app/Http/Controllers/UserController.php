@@ -73,7 +73,11 @@ class UserController extends Controller
         ];
         $input = $request->validate($data);
         $user = User::find($id);
-        $user->assignRole($request->roles);
+        $role = Role::findByName($request->roles[0]); // Ganti dengan nama peran baru yang ingin Anda berikan
+
+        $user->syncRoles([$role]);
+        // $user->assignRole($request->roles);
+        // return $user;
         if ($request->file('avatar')) {
             Storage::delete($request->avatar_lama);
             $input['avatar'] = $request->file('avatar')->store('avatar');

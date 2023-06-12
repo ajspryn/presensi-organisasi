@@ -46,7 +46,7 @@
                                     <span class="fw-500 font-xssss text-grey-500 mt-1 mb-3 d-block">{{ Auth::user()->email }}</span>
                                 </h4>
                             </div>
-                            @if (Auth::user()->anggota)
+                            @if (Auth::user()->anggota && Auth::user()->anggota->organisasi)
                                 <div class="ard-body h250 p-0 rounded-xxl overflow-hidden m-3">
                                     <div class="card w-100 border-0 shadow-none p-4 rounded-xxl mb-3" style="background-color: #e5f6ff;">
                                         <div class="card-body d-flex p-0">
